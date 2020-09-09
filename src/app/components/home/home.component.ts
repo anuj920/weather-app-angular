@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
 
   getWeatherIconUrl(value){
     if(value){
-      return "http://openweathermap.org/img/wn/"+value.weather[0].icon+".png"
+      return "https://openweathermap.org/img/wn/"+value.weather[0].icon+".png"
     }
   }
 
