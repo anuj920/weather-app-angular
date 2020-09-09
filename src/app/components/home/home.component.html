@@ -1,0 +1,128 @@
+<br>
+<br>
+
+<div class="container">
+
+
+    <div class="search-section text-center">
+
+        <div class="search-box col-sm-12">
+
+            <span class="search-location"><i class="fas fa-map-marker-alt"></i></span>
+
+            <span class="search-input"><input type="text" (focus)="focusFunction()" (keyup)="onInputChange(inputValue.value)" #inputValue [value]="search_value"></span>
+
+            <span class="search-icon"><i class="fas fa-search"></i></span>
+
+        </div>
+
+    </div>
+
+    <div *ngIf="search_true" (click)="SearchOnclick(WeatherSearchList)" class="filtervalue">
+
+        <div class="search-value">
+            <div class="value-content col-sm-12">
+                <span>  
+                    <span style="text-align: left;">{{WeatherSearchList?.name}}</span>  
+                    
+                    <span style="font-size: 16px;">  <span style="position: absolute; right: 60px;"> {{WeatherSearchList?.main?.temp | number: '1.0-0'}}° C </span> 
+
+                    <span style="position: absolute; right: 0; top: 0;">
+                        <img [src]="getWeatherIconUrl(WeatherSearchList)" alt="weather-icon">
+                    </span>
+                
+                    </span> 
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="days-section">
+
+        <div class="day-row col-sm-12">
+
+
+            <div *ngFor="let forcast of forcast_weekly" class="day-num text-center">
+               <div>
+                   <h6>
+                       {{forcast?.dt*1000 | date: 'EEE'}}
+                   </h6>
+               </div>
+               <div>
+                <span> <span class="font-weight-bold" >{{forcast?.temp?.max | number: '1.0-0'}}° </span> {{forcast?.temp?.min | number: '1.0-0'}}°</span>
+               </div>
+
+               <div>
+                   <span><img [src]="getWeatherIconUrl(forcast)" alt=""></span>
+               </div>
+
+               <div>
+                   <span><h6>{{forcast?.weather[0]?.main}}</h6></span>
+               </div>
+            </div>
+          
+
+        </div>
+
+    </div>
+
+
+    <div class="weather-section">
+
+        <div class="weather-box col-sm-12">
+
+            <div class="current-temp row">
+
+                <div class="col-4">
+                    <h1>{{current_forcast?.temp | number: '1.0-0'}}° C</h1>
+                    
+                </div>
+
+                <div class="col-4">
+                    <img [src]="getWeatherIconUrl(current_forcast)" alt="">
+                </div>
+
+            </div>
+            
+
+            <div class="weather-graph">
+
+                <div class="chartContainer">
+
+                    <canvas id="myweathergraph"></canvas>
+
+                </div>
+            </div>
+
+            <div class="weather-other row">
+                <div class="col-6">
+                   <div class="pressure">
+                        <h5>Pressure</h5>
+                        <h6>{{current_forcast?.pressure}} hpa</h6>
+                   </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="pressure">
+                        <h5>Humidity</h5>
+                        <h6>{{current_forcast?.humidity}} %</h6>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="sunset-sunrise">
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+<br>
