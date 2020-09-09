@@ -32,9 +32,9 @@ export class HomeComponent implements OnInit {
 
   getLocation(){
     this.locationService.getPosition().subscribe(pos=>{
-     this.lon = pos.lon;
-     this.lat = pos.lat;
-     this.city = pos.city +" ,"+pos.regionName;
+     this.lon = pos.longitude;
+     this.lat = pos.latitude;
+     this.city = pos.city +" ,"+pos.region;
      this.search_value = this.city;
      this.getWeatherByLonLat();
     })

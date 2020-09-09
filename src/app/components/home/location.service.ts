@@ -12,7 +12,7 @@ export class LocationService {
 
   getPosition(): Observable<any>
   {
-    return this.http.get(`http://ip-api.com/json`);
+    return this.http.get(`https://api.ipfind.com/me?auth=d2ad358e-d861-49a4-9a5a-226bfa831b29`);
   }
 
 }
