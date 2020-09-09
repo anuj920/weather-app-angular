@@ -17,7 +17,7 @@ export class HomeService {
   }
 
   getCityListByQuery(value):Observable<any>{
-    return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${value}&appid=${this.APIKEY}&units=${this.UNIT}`)
+    return this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=${this.APIKEY}&units=${this.UNIT}`)
   }
 
 
