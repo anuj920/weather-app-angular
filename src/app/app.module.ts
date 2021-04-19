@@ -8,11 +8,13 @@ import { HomeComponent } from './components/home/home.component';
 import { LocationService } from './components/home/location.service'
 import { HomeService } from './components/home/home.service'
 import { HttpClientModule } from '@angular/common/http';
+import { WebpushComponent } from './components/webpush/webpush.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    WebpushComponent
   ],
   imports: [
     BrowserModule,

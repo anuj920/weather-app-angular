@@ -1,4 +1,4 @@
-
+var myLineChart;
 
 function weatherGraph(label,temp_data){
 
@@ -34,8 +34,11 @@ function weatherGraph(label,temp_data){
           },
         
       };
-
-    var myLineChart = new Chart(ctx, {
+    
+    if(myLineChart){
+      myLineChart.destroy()
+    }
+    myLineChart = new Chart(ctx, {
         type: 'line',
         data: speedData,
         options: chartOptions
